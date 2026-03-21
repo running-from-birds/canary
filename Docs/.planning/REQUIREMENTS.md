@@ -1,4 +1,4 @@
-# Requirements: ChordVocoder
+# Requirements: Canary
 
 **Defined:** 2026-03-20
 **Core Value:** The sidechain vocoder effect must work reliably across all major DAWs -- if the sidechain bus doesn't show up, nothing else matters.

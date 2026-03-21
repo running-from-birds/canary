@@ -23,12 +23,12 @@ tech-stack:
 
 key-files:
   created:
-    - ChordVocoder/CMakeLists.txt
-    - ChordVocoder/src/PluginProcessor.h
-    - ChordVocoder/src/PluginProcessor.cpp
-    - ChordVocoder/src/PluginEditor.h
-    - ChordVocoder/src/PluginEditor.cpp
-    - ChordVocoder/.gitignore
+    - Canary/CMakeLists.txt
+    - Canary/src/PluginProcessor.h
+    - Canary/src/PluginProcessor.cpp
+    - Canary/src/PluginEditor.h
+    - Canary/src/PluginEditor.cpp
+    - Canary/.gitignore
   modified: []
 
 key-decisions:
@@ -75,12 +75,12 @@ Each task was committed atomically:
 2. **Task 2: Create PluginEditor and verify full build** - `1353bdc` (feat)
 
 ## Files Created/Modified
-- `ChordVocoder/CMakeLists.txt` - JUCE CMake build config with FetchContent, VST3 format, Canary metadata
-- `ChordVocoder/src/PluginProcessor.h` - AudioProcessor subclass with sidechainConnected atomic flag
-- `ChordVocoder/src/PluginProcessor.cpp` - Bus config, isBusesLayoutSupported, passthrough processBlock with sidechain guard
-- `ChordVocoder/src/PluginEditor.h` - Minimal editor declaration
-- `ChordVocoder/src/PluginEditor.cpp` - Dark background editor with centered "ChordVocoder" label
-- `ChordVocoder/.gitignore` - Excludes build/ directory
+- `Canary/CMakeLists.txt` - JUCE CMake build config with FetchContent, VST3 format, Canary metadata
+- `Canary/src/PluginProcessor.h` - AudioProcessor subclass with sidechainConnected atomic flag
+- `Canary/src/PluginProcessor.cpp` - Bus config, isBusesLayoutSupported, passthrough processBlock with sidechain guard
+- `Canary/src/PluginEditor.h` - Minimal editor declaration
+- `Canary/src/PluginEditor.cpp` - Dark background editor with centered "Canary" label
+- `Canary/.gitignore` - Excludes build/ directory
 
 ## Decisions Made
 - Added C language to CMakeLists.txt `LANGUAGES C CXX` because CMake 4.x (installed via Homebrew) requires explicit C language declaration when JUCE internally enables C compilation. Without this, CMake generation fails with missing CMAKE_C_COMPILE_OBJECT.
@@ -95,7 +95,7 @@ Each task was committed atomically:
 - **Found during:** Task 2 (build step)
 - **Issue:** CMake 4.3.0 (latest Homebrew version) fails generation with "Missing variable: CMAKE_C_COMPILE_OBJECT" when project declares only CXX but JUCE internally enables C
 - **Fix:** Changed `LANGUAGES CXX` to `LANGUAGES C CXX` in CMakeLists.txt
-- **Files modified:** ChordVocoder/CMakeLists.txt
+- **Files modified:** Canary/CMakeLists.txt
 - **Verification:** cmake configure completes successfully
 - **Committed in:** 1353bdc (Task 2 commit)
 
@@ -119,7 +119,7 @@ None - no external service configuration required.
 
 ## Next Phase Readiness
 - All 5 source files exist and compile into a working VST3 plugin
-- .vst3 bundle installed and ad-hoc signed at ~/Library/Audio/Plug-Ins/VST3/ChordVocoder.vst3
+- .vst3 bundle installed and ad-hoc signed at ~/Library/Audio/Plug-Ins/VST3/Canary.vst3
 - Ready for 01-02-PLAN: DAW sidechain validation (human checkpoint to verify sidechain appears in DAWs)
 - Sidechain bus configuration follows all best practices from research (dual declaration, disabled acceptance, getBusBuffer guard)
 

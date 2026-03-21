@@ -14,7 +14,7 @@ Target: A working VST3 plugin loadable in any major DAW (Ableton, FL Studio, Rea
 
 1. Initialize a JUCE audio plugin project using CMake (not the Projucer).
 2. Configure the project as a **VST3** plugin with the following metadata:
-   - Plugin name: "ChordVocoder"
+   - Plugin name: "Canary"
    - Manufacturer: (my name or placeholder)
    - Plugin code: "CVoc"
    - Is a synth: No (it's an effect)
@@ -35,7 +35,7 @@ Target: A working VST3 plugin loadable in any major DAW (Ableton, FL Studio, Rea
 4. Set up the directory structure:
 
 ```
-ChordVocoder/
+Canary/
 ├── CMakeLists.txt
 ├── src/
 │   ├── PluginProcessor.h / .cpp    (main audio processor, bus config)
@@ -186,7 +186,7 @@ Implementation: multiply each modulator center frequency by `pow(2.0, semitones 
 
 ```
 ┌───────────────────────────────────────────────┐
-│  ChordVocoder                                 │
+│  Canary                                 │
 ├───────────────────────────────────────────────┤
 │                                               │
 │  ┌───────────────────────────────────────┐    │
