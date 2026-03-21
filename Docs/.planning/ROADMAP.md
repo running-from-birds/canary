@@ -1,8 +1,8 @@
-# Roadmap: ChordVocoder
+# Roadmap: Canary
 
 ## Overview
 
-ChordVocoder goes from zero to a working vocoder VST3 in four phases. Phase 1 validates the one thing that can kill the project: sidechain bus routing across DAWs. Phase 2 builds the entire DSP engine (filter bank, envelope followers, vocoder core, parameters). Phase 3 layers on the GUI with band visualizer and sidechain status. Phase 4 adds creative features (stutter, noise blend, gate) and preset persistence.
+Canary goes from zero to a working vocoder VST3 in four phases. Phase 1 validates the one thing that can kill the project: sidechain bus routing across DAWs. Phase 2 builds the entire DSP engine (filter bank, envelope followers, vocoder core, parameters). Phase 3 layers on the GUI with band visualizer and sidechain status. Phase 4 adds creative features (stutter, noise blend, gate) and preset persistence.
 
 ## Phases
 
@@ -12,7 +12,7 @@ ChordVocoder goes from zero to a working vocoder VST3 in four phases. Phase 1 va
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Plugin Scaffold and Sidechain Validation** - VST3 loads in all target DAWs with sidechain routing visible and passthrough audio working
+- [x] **Phase 1: Plugin Scaffold and Sidechain Validation** - VST3 loads in all target DAWs with sidechain routing visible and passthrough audio working (completed 2026-03-21)
 - [ ] **Phase 2: Vocoder DSP Engine** - Complete vocoder signal chain with filter bank, envelope followers, formant shift, and all core parameters
 - [ ] **Phase 3: GUI and Visualization** - Minimal dark UI with 6 knobs, band visualizer, and sidechain status indicator
 - [ ] **Phase 4: Creative Features and Polish** - Stutter/randomizer, noise blend, gate threshold, additional knobs, and preset system
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md -- Create plugin scaffold (CMake + JUCE FetchContent, PluginProcessor with sidechain bus, PluginEditor, build and sign)
-- [ ] 01-02-PLAN.md -- Verify build artifacts and DAW sidechain validation (human checkpoint)
+- [x] 01-02-PLAN.md -- Verify build artifacts and DAW sidechain validation (human checkpoint)
 
 ### Phase 2: Vocoder DSP Engine
 **Goal**: Users hear vocoded output when voice enters main input and chords enter sidechain, with controllable parameters
@@ -87,7 +87,7 @@ Phases execute in numeric order: 1 --> 2 --> 3 --> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Plugin Scaffold and Sidechain Validation | 1/2 | In progress | - |
+| 1. Plugin Scaffold and Sidechain Validation | 2/2 | Complete   | 2026-03-21 |
 | 2. Vocoder DSP Engine | 0/3 | Not started | - |
 | 3. GUI and Visualization | 0/1 | Not started | - |
 | 4. Creative Features and Polish | 0/1 | Not started | - |
