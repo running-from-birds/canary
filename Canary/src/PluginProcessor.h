@@ -2,11 +2,11 @@
 
 #include <juce_audio_processors/juce_audio_processors.h>
 
-class ChordVocoderProcessor : public juce::AudioProcessor
+class CanaryAudioProcessor : public juce::AudioProcessor
 {
 public:
-    ChordVocoderProcessor();
-    ~ChordVocoderProcessor() override;
+    CanaryAudioProcessor();
+    ~CanaryAudioProcessor() override;
 
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
@@ -38,5 +38,5 @@ public:
     std::atomic<bool> sidechainConnected { false };
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ChordVocoderProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CanaryAudioProcessor)
 };

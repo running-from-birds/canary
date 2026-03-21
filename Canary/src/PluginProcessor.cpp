@@ -1,7 +1,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-ChordVocoderProcessor::ChordVocoderProcessor()
+CanaryAudioProcessor::CanaryAudioProcessor()
     : AudioProcessor(BusesProperties()
         .withInput("Input",     juce::AudioChannelSet::stereo(), true)
         .withInput("Sidechain", juce::AudioChannelSet::stereo(), false)
@@ -9,19 +9,19 @@ ChordVocoderProcessor::ChordVocoderProcessor()
 {
 }
 
-ChordVocoderProcessor::~ChordVocoderProcessor() {}
+CanaryAudioProcessor::~CanaryAudioProcessor() {}
 
-void ChordVocoderProcessor::prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/)
+void CanaryAudioProcessor::prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/)
 {
     // No DSP to prepare in Phase 1
 }
 
-void ChordVocoderProcessor::releaseResources()
+void CanaryAudioProcessor::releaseResources()
 {
     // Nothing to release in Phase 1
 }
 
-bool ChordVocoderProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+bool CanaryAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     // Main input must be mono or stereo
     const auto& mainInput = layouts.getMainInputChannelSet();
@@ -43,8 +43,8 @@ bool ChordVocoderProcessor::isBusesLayoutSupported(const BusesLayout& layouts) c
     return true;
 }
 
-void ChordVocoderProcessor::processBlock(juce::AudioBuffer<float>& buffer,
-                                          juce::MidiBuffer&)
+void CanaryAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
+                                         juce::MidiBuffer&)
 {
     juce::ScopedNoDenormals noDenormals;
 
@@ -55,22 +55,22 @@ void ChordVocoderProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     // No processing needed; buffer passes through unmodified
 }
 
-juce::AudioProcessorEditor* ChordVocoderProcessor::createEditor()
+juce::AudioProcessorEditor* CanaryAudioProcessor::createEditor()
 {
-    return new ChordVocoderEditor(*this);
+    return new CanaryAudioProcessorEditor(*this);
 }
 
-void ChordVocoderProcessor::getStateInformation(juce::MemoryBlock& /*destData*/)
+void CanaryAudioProcessor::getStateInformation(juce::MemoryBlock& /*destData*/)
 {
     // Stub for Phase 1
 }
 
-void ChordVocoderProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/)
+void CanaryAudioProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/)
 {
     // Stub for Phase 1
 }
 
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new ChordVocoderProcessor();
+    return new CanaryAudioProcessor();
 }

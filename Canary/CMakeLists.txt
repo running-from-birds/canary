@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 
-project(ChordVocoder VERSION 1.0.0 LANGUAGES C CXX)
+project(Canary VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,10 +16,10 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(JUCE)
 
-juce_add_plugin(ChordVocoder
+juce_add_plugin(Canary
     COMPANY_NAME "Canary"
     PLUGIN_MANUFACTURER_CODE Cnry
-    PLUGIN_CODE CVoc
+    PLUGIN_CODE Cnry
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
@@ -28,16 +28,16 @@ juce_add_plugin(ChordVocoder
     COPY_PLUGIN_AFTER_BUILD TRUE
     VST3_COPY_DIR "$ENV{HOME}/Library/Audio/Plug-Ins/VST3"
     FORMATS VST3
-    PRODUCT_NAME "ChordVocoder"
+    PRODUCT_NAME "Canary"
 )
 
-target_sources(ChordVocoder
+target_sources(Canary
     PRIVATE
         src/PluginProcessor.cpp
         src/PluginEditor.cpp
 )
 
-target_compile_definitions(ChordVocoder
+target_compile_definitions(Canary
     PUBLIC
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
@@ -45,7 +45,7 @@ target_compile_definitions(ChordVocoder
         JUCE_DISPLAY_SPLASH_SCREEN=0
 )
 
-target_link_libraries(ChordVocoder
+target_link_libraries(Canary
     PRIVATE
         juce::juce_audio_processors
         juce::juce_audio_basics
