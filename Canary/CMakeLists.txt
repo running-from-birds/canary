@@ -27,7 +27,8 @@ juce_add_plugin(Canary
     EDITOR_WANTS_KEYBOARD_FOCUS FALSE
     COPY_PLUGIN_AFTER_BUILD TRUE
     VST3_COPY_DIR "$ENV{HOME}/Library/Audio/Plug-Ins/VST3"
-    FORMATS VST3
+    AU_COPY_DIR "$ENV{HOME}/Library/Audio/Plug-Ins/Components"
+    FORMATS VST3 AU
     PRODUCT_NAME "Canary"
 )
 
