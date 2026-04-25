@@ -5,6 +5,8 @@
 class CanaryAudioProcessor : public juce::AudioProcessor
 {
 public:
+    using APVTS = juce::AudioProcessorValueTreeState;
+
     CanaryAudioProcessor();
     ~CanaryAudioProcessor() override;
 
@@ -34,9 +36,27 @@ public:
     void getStateInformation(juce::MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
-    // Cross-thread flag for sidechain status (audio thread writes, GUI reads)
-    std::atomic<bool> sidechainConnected { false };
+    APVTS& getValueTreeState() { return parameters; }
+    const APVTS& getValueTreeState() const { return parameters; }
+
+    bool isSidechainSignalPresent() const
+    {
+        return sidechainSignalPresent.load(std::memory_order_relaxed);
+    }
+
+    bool isSidechainConnected() const
+    {
+        return sidechainConnected.load(std::memory_order_relaxed);
+    }
 
 private:
+    static APVTS::ParameterLayout createParameterLayout();
+
+    APVTS parameters;
+
+    // Cross-thread status flags (audio thread writes, GUI reads).
+    std::atomic<bool> sidechainConnected { false };
+    std::atomic<bool> sidechainSignalPresent { false };
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CanaryAudioProcessor)
 };
